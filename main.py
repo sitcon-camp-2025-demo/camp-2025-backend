@@ -1,5 +1,4 @@
 from fastapi import FastAPI, HTTPException
-from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 import json
 
@@ -10,6 +9,8 @@ class TodoItem(BaseModel):
     priority: int = Field(gt = 0)
 
 app = FastAPI()
+
+from fastapi.middleware.cors import CORSMiddleware
 
 app.add_middleware(
     CORSMiddleware,
